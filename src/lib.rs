@@ -253,6 +253,7 @@ where
     }
 }
 
+#[cfg(target_os = "linux")]
 pub mod process;
 
 mod meminfo;
@@ -266,7 +267,9 @@ pub mod net;
 mod cpuinfo;
 pub use crate::cpuinfo::*;
 
+#[cfg(target_os = "linux")]
 mod cgroups;
+#[cfg(target_os = "linux")]
 pub use crate::cgroups::*;
 
 pub mod sys;
@@ -288,13 +291,19 @@ pub mod keyring;
 mod uptime;
 pub use uptime::*;
 
+#[cfg(target_os = "linux")]
 mod iomem;
+#[cfg(target_os = "linux")]
 pub use iomem::*;
 
+#[cfg(target_os = "linux")]
 mod kpageflags;
+#[cfg(target_os = "linux")]
 pub use kpageflags::*;
 
+#[cfg(target_os = "linux")]
 mod kpagecount;
+#[cfg(target_os = "linux")]
 pub use kpagecount::*;
 
 lazy_static! {
